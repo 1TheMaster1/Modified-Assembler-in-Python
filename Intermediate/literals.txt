@@ -1,0 +1,3 @@
+ Name	Value	Address
+=C'A'	41   	0000	CDATA
+=X'07'	07   	0009	CDATA

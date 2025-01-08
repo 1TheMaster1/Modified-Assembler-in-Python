@@ -1,0 +1,40 @@
+        PROGA   START    0000
+0000            USE      DEFAULTB
+0003            LDA      =C'A'
+0006            +LDB     #RESULT
+                BASE     RESULT
+000A            ADD      WOD
+000D            LDT      #256
+0000            USE      DEFAULT
+0000            TIO
+0001            MULR     A,X
+000D            USE      DEFAULTB
+0010            CADD     A,WOD,Z
+0014            +LDA     GAMMA
+0018            J        @RETADR
+0000            USE      CDATA
+                LTORG
+0031            =C'A'
+0018            USE      DEFAULTB
+001B            CSUB     A,GAMMA,N
+0001            USE      CDATA
+0032            WORD     5
+0035            BYTE     X'02'
+001C            USE      DEFAULTB
+001F            COMP     RESULT
+0022            CLOAD    T,DATA,C
+0026            CSTORE   T,RESULT,Z
+002A            CJUMP    LENGTH,N
+002E            STA      =X'07'
+0005            USE      CDATA
+0036            WORD     5
+0000            USE      CBLKS
+003B            RESB     10
+0045            RESB     4096
+1045            RESW     1
+0008            USE      CDATA
+0039            BYTE     X'FF'
+                LTORG
+003A            =X'07'
+                END      0000
+
